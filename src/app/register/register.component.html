@@ -1,0 +1,112 @@
+<section class="register-form-wrapper container">
+  <div class="h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-lg-7 col-md-10 col-sm-12">
+        <div class="card">
+          <div class="card-header h4">Register</div>
+          <div class="card-body">
+            <div *ngIf="message" class="h6 d-flex justify-content-center pb-3" 
+            [ngClass]="isRegisterSuccess == true ? 'text-success' : 'text-danger'">
+            <!-- message=="You have register successfully" ? "success" : "errors" -->
+                {{message}}
+            </div>
+            <form autocomplete="off" [formGroup]="registerFormGroup">
+              <div class="form-group row">
+                <label
+                  for="first_name"
+                  class="col-md-4 text-md-right"
+                  >First Name</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="type"
+                    id="first_name"
+                    class="form-control"
+                    name="first-name"
+                    formControlName="firstName"
+                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                  />
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">First name is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="last_name"
+                  class="col-md-4 text-md-right"
+                  >Last Name</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="type"
+                    id="last_name"
+                    class="form-control"
+                    name="last-name"
+                    formControlName="lastName"
+                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                  />
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">Last name is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="email_address"
+                  class="col-md-4 text-md-right"
+                  >Email</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    id="email_address"
+                    class="form-control"
+                    name="email-address"
+                    formControlName="email"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                  />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid</div>
+                </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="password"
+                  class="col-md-4 text-md-right"
+                  >Password</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    name="password"
+                    formControlName="password"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                  />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters long</div>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-6 offset-md-4">
+                <button type="button" class="btn btn-primary mr-2" 
+                (click)="registerContact()">
+                  Register
+                </button>
+                <button type="button" class="btn btn-secondary" 
+                (click)="backToLogin()">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

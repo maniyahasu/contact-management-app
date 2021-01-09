@@ -1,0 +1,48 @@
+<section class="mt-5">
+    <div class="row pb-3">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <h4>Contact List</h4>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+            <button class="btn btn-primary" (click)="addContact()">Add Contact</button>
+        </div>
+    </div>
+    <section class="contact-list-container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Is Active?</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="list.length > 0; else noRecordsDiv">
+                    <tr *ngFor="let contact of list; let i = index">
+                        <td>{{contact.firstName}}</td>
+                        <td>{{contact.lastName}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.phone}}</td>
+                        <td>{{contact.isActive}}</td>
+                        <td>
+                            <i class="fa fa-pencil mr-3" (click)="editContact(contact, i)"></i>
+                            <i class="fa fa-trash text-danger" (click)="deleteContact(i)"></i>
+                        </td>
+                    </tr>
+                </ng-container>   
+                <ng-template #noRecordsDiv>
+                    <tr>
+                        <td colspan="6">
+                            <div class="py-2 text-center">No records to display!!</div>
+                        </td>
+                    </tr>
+                </ng-template> 
+            </tbody>
+                
+            </table>
+        </section>
+        
+</section>

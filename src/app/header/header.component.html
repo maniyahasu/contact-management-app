@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Contact Management Application</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#contactMgmtAppNav"
+    aria-controls="contactMgmtAppNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    (click)="toggleNavItem()"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="contactMgmtAppNav" #contactMgmtAppNav>
+    <div class="navbar-nav ml-auto"*ngIf="currentUser === null">
+      <a class="nav-item nav-link" routerLink="login" routerLinkActive="active">Login</a>
+      <a class="nav-item nav-link" routerLink="register" routerLinkActive="active">Register</a>
+    </div>
+    <div class="navbar-nav ml-auto" *ngIf="currentUser != null">
+      <div class="text-white d-flex align-items-center">
+        Welcome, {{currentUser?.firstName}} {{currentUser?.lastName}}
+        <span class="text-white px-3">|</span>
+      </div> 
+      <a class="nav-item nav-link" (click)="logOut()" href="">Logout</a>
+    </div>
+  </div>
+</nav>

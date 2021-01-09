@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+// setting login form height
+.login-form-wrapper, .register-form-wrapper {
+    height: 85vh;
+}
+.disabled, :disabled {
+    pointer-events: none;
+    cursor: default !important;
+    outline: none;
+}
+.fa {
+    cursor: pointer;
+}
+.footer-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-list-container {
+    height: 63vh;
+    overflow: auto;
+}
+.toast {
+    width: 20rem;
+    position: fixed;
+    top: 3.5rem;
+    .toast-body {
+        padding: 1rem;
+    }
+}
