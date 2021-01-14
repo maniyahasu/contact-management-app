@@ -60,14 +60,4 @@ export class AddEditContactComponent implements OnInit {
 
   get f() { return this.addEditFormGroup.controls };
 
-  // createAddForm() {
-  //   return this.addEditFormGroup = this.formBuilder.group({
-  //     firstName: new FormControl('', [Validators.required]),
-  //     lastName: new FormControl('', [Validators.required]),
-  //     email: new FormControl('', [Validators.required]),
-  //     phone: new FormControl('', [Validators.required]),
-  //     isActive: new FormControl(''),
-  //   });
-  // }
-
 }
