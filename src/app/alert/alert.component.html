@@ -1,0 +1,23 @@
+<!-- Success Alert -->
+<div class="alert-wrapper" *ngIf="successMessage">
+    <ngb-alert [dismissible]="true" [type]="'success'" (close)="successMessage = null">
+        <div><strong>Success</strong></div>
+        <div>{{successMessage}}</div>
+    </ngb-alert>
+</div>
+
+<!-- Warning Alert -->
+<div class="alert-wrapper" *ngIf="warningMessage">
+    <ngb-alert [dismissible]="true" [type]="'warning'" (close)="warningMessage = null">
+        <div><strong>Aarning</strong></div>
+        <div>{{warningMessage}}</div>
+    </ngb-alert>
+</div>
+
+<!-- Error Alert -->
+<div class="alert-wrapper" *ngIf="errorMessage">
+    <ngb-alert [dismissible]="true" [type]="'danger'" (close)="errorMessage = null">
+        <div><strong>Error</strong></div>
+        <div>{{errorMessage}}</div>
+    </ngb-alert>
+</div>

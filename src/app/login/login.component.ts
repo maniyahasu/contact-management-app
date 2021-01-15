@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from '../alert/alert.service';
 import { User } from '../model/user.model';
 import { AuthService } from '../service/auth.service';
 import { UserService } from '../service/user.service';
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -32,11 +35,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get f() {
+  get f(): { [key: string]: AbstractControl } {
     return this.loginFormGroup.controls;
   }
 
-  doLogin() {
+  doLogin(): void {
     this.submitted = true;
     if (this.loginFormGroup.invalid) {
       return;
@@ -46,13 +49,12 @@ export class LoginComponent implements OnInit {
       if (resp) {
         this.errorMessage = null;
         this.userService.saveCurrentUser(resp);
+        this.alertService.success("Login Successfull!");
         this.router.navigate(['contact-list']);
-        // this.toastService.showSuccessMessage("Login Successfull");
       } else {
         this.errorMessage = 'Invalid email or password';
         this.userService.clearCurrentUser();
         this.router.navigate(['login']);
-        // this.toastService.showErrorMessage("Login Failed");
       }
     }).catch(error => {
       console.log(error)
