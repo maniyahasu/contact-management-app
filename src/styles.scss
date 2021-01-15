@@ -33,3 +33,13 @@
         padding: 1rem;
     }
 }
+// Alert css
+.alert-wrapper {
+    position: fixed;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.alert {
+    width: 20rem;
+}

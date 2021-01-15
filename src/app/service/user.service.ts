@@ -14,11 +14,11 @@ export class UserService {
     return of(JSON.parse(localStorage.getItem('USERS')) as Array<User> || []);
   }
 
-  saveUserList(userList: User[]) {
+  saveUserList(userList: User[]): void {
     localStorage.setItem('USERS', JSON.stringify(userList));
   }
 
-  saveCurrentUser(user: User) {
+  saveCurrentUser(user: User): void {
     user.password = this.encryptService.encrypt(user.password);
     localStorage.setItem('LOG-IN-USER', JSON.stringify(user));
   }
@@ -27,7 +27,7 @@ export class UserService {
     return of(JSON.parse(localStorage.getItem('LOG-IN-USER')));
   }
 
-  clearCurrentUser() {
+  clearCurrentUser(): void {
     localStorage.removeItem('LOG-IN-USER');
   }
 }
