@@ -35,8 +35,8 @@ describe('HeaderComponent', () => {
   it('should show Login and Register link if user is not logged in', () => {
     component.currentUser = null;
     fixture.detectChanges();
-    let loginLink = fixture.debugElement.nativeElement.querySelector(".navbar-nav .nav-item:first-child");
-    let registerLink = fixture.debugElement.nativeElement.querySelector(".navbar-nav .nav-item:last-child");
+    let loginLink = fixture.debugElement.nativeElement.querySelector("#loginLink");
+    let registerLink = fixture.debugElement.nativeElement.querySelector("#registerLink");
     expect(loginLink.textContent).toContain("Login");
     expect(registerLink.textContent).toContain("Register");
   });
@@ -49,7 +49,7 @@ describe('HeaderComponent', () => {
       password: '123456'
     };
     fixture.detectChanges();
-    let logOut = fixture.debugElement.nativeElement.querySelector(".navbar-nav .nav-item");
+    let logOut = fixture.debugElement.nativeElement.querySelector("#logoutLink");
     expect(logOut.textContent).toContain("Logout");
   });
 });

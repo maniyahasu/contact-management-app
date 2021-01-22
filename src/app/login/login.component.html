@@ -5,7 +5,9 @@
                 <div class="card">
                     <div class="card-header h4">Login</div>
                     <div class="card-body">
-                        <ngb-alert *ngIf="errorMessage" class="alert-danger" (closed)="errorMessage = null" type="danger">{{errorMessage}}</ngb-alert>
+                        <div class="d-flex justify-content-center">
+                            <ngb-alert *ngIf="errorMessage" class="alert-danger" (closed)="errorMessage = null" type="danger">{{errorMessage}}</ngb-alert>
+                        </div>
                         <form [formGroup]="loginFormGroup">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 text-md-right">Email</label>

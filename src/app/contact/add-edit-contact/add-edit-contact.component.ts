@@ -10,7 +10,9 @@ import { Contact } from '../../model/contact.model';
 })
 export class AddEditContactComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal, private formBuilder: FormBuilder, private contactService: ContactService) { }
+  constructor(public activeModal: NgbActiveModal, 
+              private formBuilder: FormBuilder, 
+              private contactService: ContactService) { }
 
   @Input('contact') contact:Contact;
   @Input('operation') operation: string

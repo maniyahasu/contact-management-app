@@ -45,7 +45,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
       if(editedContact) {
         this.contactService.updateContact(editedContact, index);
       }
-    })
+    });
   }
 
   deleteContact(index: number) {

@@ -13,16 +13,19 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="contactMgmtAppNav" #contactMgmtAppNav>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="product" routerLinkActive="active" id="productLink">Product</a>
+    </div>
     <div class="navbar-nav ml-auto"*ngIf="currentUser === null">
-      <a class="nav-item nav-link" routerLink="login" routerLinkActive="active">Login</a>
-      <a class="nav-item nav-link" routerLink="register" routerLinkActive="active">Register</a>
+      <a class="nav-item nav-link" routerLink="login" routerLinkActive="active" id="loginLink">Login</a>
+      <a class="nav-item nav-link" routerLink="register" routerLinkActive="active" id="registerLink">Register</a>
     </div>
     <div class="navbar-nav ml-auto" *ngIf="currentUser != null">
       <div class="text-white d-flex align-items-center">
         Welcome, {{currentUser?.firstName}} {{currentUser?.lastName}}
         <span class="text-white px-3">|</span>
       </div> 
-      <a class="nav-item nav-link" (click)="logOut()" href="">Logout</a>
+      <a class="nav-item nav-link" (click)="logOut()" href="" id="logoutLink">Logout</a>
     </div>
   </div>
 </nav>

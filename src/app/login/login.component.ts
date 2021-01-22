@@ -48,6 +48,10 @@ export class LoginComponent implements OnInit {
     this.authService.validateUser(this.loginFormGroup.value).then((resp: User) => {
       if (resp) {
         this.errorMessage = null;
+        // let user = new User();
+        // user.loggedInDate = new Date().getTime() + 1200000;
+        // console.log("Logged in user date:", new Date() + "And expiration date is: ", new Date(user.loggedInDate));
+        // let obj: {  } = resp;
         this.userService.saveCurrentUser(resp);
         this.alertService.success("Login Successfull!");
         this.router.navigate(['contact-list']);
