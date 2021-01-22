@@ -43,4 +43,41 @@
 .alert {
     width: 20rem;
 }
-// Adding test comment, no need to merge this changes
+// Product list style
+.product-list-wrapper {
+    .card {
+        height: 26rem;
+        max-height: 26rem;
+        overflow: auto;
+        &:hover {
+            cursor: pointer;
+            background-color: #f5f5f5;
+        }
+    }
+    .product-list-image {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
+// Loading spinner
+.loading-spinner {
+    .spinner-border {
+        height: 6rem;
+        width: 6rem;
+        z-index: 100;
+        position: absolute;
+        left: 40%;
+        top: 10rem;
+    }
+}
+// Product details
+.product-details-wrapper {
+    .fa-arrow-left {
+        font-size: 1.5rem;
+    }
+}

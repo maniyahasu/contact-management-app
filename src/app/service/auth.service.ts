@@ -46,12 +46,13 @@ export class AuthService implements OnDestroy {
 
   // Auto login if user is logged in and refresh the page
   doAutoLogin() {
-    let loggedInUser;
+    let loggedInUser: User;
     this.userService.getCurrentUser().subscribe((user: User) => loggedInUser = user);
     if(!loggedInUser) { return };
 
     this.loggedInUser.next(loggedInUser);
     this.router.navigate(['/contact-list']);
+    // this.router.navigate(['/product']);
   }
 
   ngOnDestroy() {

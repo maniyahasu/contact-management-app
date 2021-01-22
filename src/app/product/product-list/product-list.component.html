@@ -1,0 +1,42 @@
+<div class="product-list-wrapper">
+    <div class="row pb-3">
+        <div class="col-md-6">
+            <h3>Product List</h3>
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-link pr-4" (click)="clearProductFilter()" *ngIf="isFilteredProductList">Clear Filter</button>
+           <!-- <div>Sort By Category</div> -->
+           <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="sortByCategory" ngbDropdownToggle>Sort By Category</button>
+            <div ngbDropdownMenu aria-labelledby="sortByCategory">
+              <button ngbDropdownItem class="dropdown-item"  *ngFor="let item of productCategory" (click)="filterProductList(item)">
+                  {{item}}
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!isDataLoading; else loader">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let product of productList; let i = index;">
+            <div class="card mb-3" routerLink="details/{{product.id}}">
+                <div class="product-list-image">
+                    <img [src]="product.image" alt="{{product.title}}" />
+                </div>
+                <div class="card-body">
+                    <p class="font-weight-bold">{{ product.title }}</p>
+                    <p class="card-text" title="{{product.description}}">{{ product.description | slice:0:60 }}</p>
+                    <p>Price: <strong>{{ product.price }}</strong></p>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-primary mr-3" routerLink="edit/{{product.id}}">Edit</button>
+                            <button class="btn btn-danger" (click)="deleteProduct(i, $event)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
+</div>

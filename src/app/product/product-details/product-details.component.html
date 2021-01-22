@@ -1,0 +1,75 @@
+
+<div class="product-details-wrapper mb-5" *ngIf="formAction === 'view'">
+    <div class="" *ngIf="product; else loader">
+        <div class="row">
+            <div class="col-md-12 d-flex align-items-baseline">
+                <i class="fa fa-arrow-left pr-4" (click)="backToProductList()"></i> <h4>Product Name: {{product.title}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <figure>
+                    <img [src]="product.image" alt="{{product.title}}" height="350" width="350">
+                </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+               <strong>Description: </strong> {{product.description}} 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+               <strong>Price: </strong> {{product.price}} 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-edit-wrapper" *ngIf="formAction === 'edit'">
+    <div class="row">
+        <div class="col-md-6">
+            Edit Product
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="updateProduct()">Save</button>
+            <button class="btn btn-secondary">Back</button>
+        </div>
+    </div>
+    <div *ngIf="product; else loader">
+        <form [formGroup]="editProductFormGroup">
+            <input type="hidden" formControlName="id">
+            <div class="row form-group">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <figure>
+                        <img [src]="f.image.value" alt="{{image}}" height="350" width="350">
+                    </figure>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="product-title">Product Name</label>
+                    <input type="text" class="form-control" formControlName="title" id="product-title">
+                </div>
+                <div class="col-md-6">
+                    <label for="product-category">Category</label>
+                    <input type="text" class="form-control" formControlName="category" id="product-category">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="product-price">Price</label>
+                    <input type="text" class="form-control" formControlName="price" id="product-price">
+                </div>
+                <div class="col-md-6">
+                    <label for="product-description">Description</label>
+                    <textarea type="text" rows="4" class="form-control" formControlName="description" id="product-description">
+                    </textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- {{editProductFormGroup?.value | json}} -->
+</div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
